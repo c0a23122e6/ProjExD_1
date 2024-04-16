@@ -31,7 +31,9 @@ def main():
 
         if key_list[pg.K_RIGHT]:
             print("右キーが押されています")
-            kk_rct.move_ip((1, 0))
+            kk_rct.move_ip((2, 0))
+        else:
+            kk_rct.move_ip((-1, 0))
 
         if key_list[pg.K_LEFT]:
             print("左キーが押されています")
