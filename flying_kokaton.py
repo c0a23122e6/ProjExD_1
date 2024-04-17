@@ -23,40 +23,23 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_list = pg.key.get_pressed()
-        #print(key_list)
-        kk_rct.move_ip(kx, ky)
         
 
         if key_list[pg.K_UP]:
-            #print("上キーが押されています")
-            #kk_rct.move_ip((0, -1))
-            kx = 0
             ky = -1
-            return kx, ky
 
-        
         if key_list[pg.K_DOWN]:
-            #print("下キーが押されています")
-            #kk_rct.move_ip((0, 1))
-            kx = 0
             ky = 1
-            return kx, ky
 
         if key_list[pg.K_RIGHT]:
             #print("右キーが押されています")
             #kk_rct.move_ip((2, 0))
             kx = 2
-            ky = 0
-            return kx, ky
-        else:
-            kk_rct.move_ip((-1, 0))
 
         if key_list[pg.K_LEFT]:
             #print("左キーが押されています")
             #kk_rct.move_ip((-1, 0))
             kx = -1
-            ky = 0
-            return kx, ky
            
 
         x = tmr % 3200
@@ -68,6 +51,9 @@ def main():
         
         pg.display.update()
         tmr += 1        
+        kk_rct.move_ip(-1 + kx, ky)
+        kx = 0
+        ky = 0
         clock.tick(200)
 
 
